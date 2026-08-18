@@ -6,144 +6,137 @@
 <meta name="description" content="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{ --bumaga:#FFFFFF; --chernila:#111010; --seryy:#8C8681; --tonkaya:#E6E2DD; }
+:root{--bumaga:#fff;--chernila:#111;--seryy:#9a9691;--tonkaya:#ececea}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bumaga);color:var(--chernila);
-  font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
-  -webkit-font-smoothing:antialiased}
-h1,h2,h3,.znak,.iniciativy{font-family:"Cormorant Garamond","EB Garamond",Georgia,serif;
-  font-weight:400;letter-spacing:.01em}
+  font-family:"Golos Text",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;width:100%}
-:focus-visible{outline:1px solid var(--chernila);outline-offset:4px}
-.polya{padding:0 40px}
+:focus-visible{outline:1px solid var(--chernila);outline-offset:5px}
 
-/* ШАПКА */
-.shapka{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);
-  backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;
-  padding:22px 40px;gap:30px}
-.znak{font-size:23px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
-.shapka nav{display:flex;gap:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
-.shapka nav a{padding-bottom:2px;border-bottom:1px solid transparent}
-.shapka nav a:hover,.shapka nav a.tut{border-color:var(--chernila)}
+/* ТОЧКА-МЕНЮ */
+.tochka{position:fixed;top:26px;right:34px;width:15px;height:15px;border-radius:50%;
+  background:var(--chernila);z-index:60;cursor:pointer;border:0;padding:0;
+  transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.tochka:hover{transform:scale(1.35)}
+.tochka.otkryto{transform:scale(.6)}
+.zanaves{position:fixed;inset:0;background:var(--bumaga);z-index:50;display:flex;
+  align-items:center;justify-content:center;opacity:0;pointer-events:none;
+  transition:opacity .45s}
+.zanaves.vidno{opacity:1;pointer-events:auto}
+.zanaves nav{display:flex;flex-direction:column;gap:18px;text-align:center}
+.zanaves a{font-size:clamp(28px,4.4vw,54px);letter-spacing:.02em;font-weight:400;
+  opacity:.35;transition:opacity .3s}
+.zanaves a:hover{opacity:1}
+.zanaves .svyaz{margin-top:36px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--seryy);opacity:1}
 
-/* СЕТКА ПРОЕКТОВ - разная высота, сдвиг по вертикали, без подписей */
-.proekty{display:grid;grid-template-columns:repeat(4,1fr);gap:56px 34px;
-  padding:28px 40px 90px}
-.plitka{position:relative;display:block}
-.plitka:nth-child(4n+2){margin-top:86px}
-.plitka:nth-child(4n+3){margin-top:14px}
-.plitka:nth-child(4n+4){margin-top:110px}
-.plitka .kadr{overflow:hidden;background:#F1EDE8}
-.plitka:nth-child(3n+1) .kadr{aspect-ratio:3/4}
-.plitka:nth-child(3n+2) .kadr{aspect-ratio:2/3}
-.plitka:nth-child(3n+3) .kadr{aspect-ratio:1/1}
-.plitka img{height:100%;object-fit:cover;transition:opacity .5s ease}
-.plitka:hover img{opacity:.82}
-.plitka .imya{position:absolute;left:0;right:0;bottom:-26px;font-size:15px;
-  letter-spacing:.02em;opacity:0;transform:translateY(-6px);
-  transition:opacity .35s,transform .35s}
-.plitka:hover .imya,.plitka:focus-visible .imya{opacity:1;transform:none}
+/* ПЕРВЫЙ ЭКРАН: два кадра и имя между ними */
+.pervyy{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;
+  gap:clamp(30px,6vw,90px);padding:clamp(50px,7vh,90px) 60px 40px;min-height:100vh}
+.pervyy .levo{padding-top:0}
+.pervyy .pravo{padding-top:clamp(70px,14vh,150px)}
+/* Кадры вертикальные и крупные: у Shamshiri фотография - главное, а не поле. */
+.pervyy .levo img,.pervyy .pravo img{aspect-ratio:4/5;object-fit:cover;background:#f3f1ee}
+.stolb{display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  gap:26px;min-height:min(76vh,700px)}
+.imya-vertikal{writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:clamp(34px,4.6vw,66px);letter-spacing:.34em;font-weight:400;line-height:1;
+  text-transform:uppercase}
+.pod-imenem{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--seryy);
+  writing-mode:horizontal-tb;text-align:center;max-width:150px;line-height:2}
+.spisok-vniz{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--seryy)}
+.spisok-vniz:hover{color:var(--chernila)}
 
-/* РАЗДЕЛ-ЗАГОЛОВОК */
-.polosa{display:flex;align-items:baseline;justify-content:space-between;
-  padding:70px 40px 10px;gap:20px}
-.polosa h2{font-size:clamp(26px,3vw,44px);margin:0;font-style:italic}
-.polosa span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--seryy)}
+/* КОЛЛАЖ ПРОЕКТОВ */
+.kollazh{padding:40px 60px 120px;display:grid;grid-template-columns:repeat(12,1fr);
+  gap:clamp(40px,6vw,90px) 30px}
+.rabota{display:block;position:relative}
+.rabota img{background:#f3f1ee;transition:opacity .5s}
+.rabota:hover img{opacity:.85}
+.rabota .podpis{margin-top:12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--seryy)}
+.rabota:hover .podpis{color:var(--chernila)}
+/* Разные размеры и сдвиги: сетка не должна читаться как таблица. */
+.rabota:nth-child(6n+1){grid-column:span 5}
+.rabota:nth-child(6n+2){grid-column:span 4;margin-top:130px}
+.rabota:nth-child(6n+3){grid-column:span 3;margin-top:40px}
+.rabota:nth-child(6n+4){grid-column:span 4;margin-top:60px}
+.rabota:nth-child(6n+5){grid-column:span 5;margin-top:0}
+.rabota:nth-child(6n+6){grid-column:span 3;margin-top:150px}
 
-/* ПРЕССА и ЗАПИСКИ */
-.stolbcy{columns:2;column-gap:70px;padding:16px 40px 60px;font-size:17px}
-.stolbcy div{break-inside:avoid;padding:11px 0;border-bottom:1px solid var(--tonkaya)}
-.zapiski{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;padding:16px 40px 90px}
-.zapiski h3{font-size:25px;margin:0 0 10px;line-height:1.18}
-.zapiski p{margin:0;font-size:16px;color:#57524D}
-
-/* ПОДВАЛ */
-.podval{border-top:1px solid var(--tonkaya);padding:54px 40px 40px;
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;font-size:16px}
-.podval .iniciativy{font-size:76px;line-height:.8}
-.podval a:hover{border-bottom:1px solid var(--chernila)}
-.podval .melko{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--seryy);
-  margin-bottom:10px}
-
-/* СТРАНИЦА МАСТЕРСКОЙ */
-.dvoyka{display:grid;grid-template-columns:1fr 1.15fr;min-height:calc(100vh - 84px)}
-.dvoyka .foto{background:#F1EDE8;overflow:hidden;position:relative}
-.dvoyka .foto img{height:100%;object-fit:cover}
-.dvoyka .zaglushka{position:absolute;inset:0;display:flex;align-items:center;
-  justify-content:center;text-align:center;color:var(--seryy);font-size:13px;
-  letter-spacing:.16em;text-transform:uppercase;padding:30px}
-.dvoyka .tekst{padding:70px 60px}
-.dvoyka .iniciativy{font-size:clamp(70px,9vw,140px);line-height:.8;margin:0 0 60px}
-.dvoyka p{max-width:58ch;margin:0 0 18px}
-.dvoyka .snizu{margin-top:70px;font-size:16px;color:var(--seryy)}
+/* ОБЫЧНЫЕ СТРАНИЦЫ */
+.shapka-str{padding:34px 60px;display:flex;justify-content:space-between;align-items:baseline}
+.shapka-str .znak{font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+.shapka-str .nazad{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--seryy)}
+.uzko{max-width:720px;margin:0 auto;padding:60px 30px 100px}
+.uzko h1{font-size:clamp(30px,4vw,52px);font-weight:400;letter-spacing:-.01em;margin:0 0 34px;
+  line-height:1.12}
+.uzko h2{font-size:20px;font-weight:500;margin:44px 0 12px}
+.uzko p{margin:0 0 20px;font-size:17px;line-height:1.72}
+.uzko .melko{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--seryy);
+  margin-bottom:16px}
+.uzko img{margin:30px 0}
+.spisok-strok div{padding:13px 0;border-bottom:1px solid var(--tonkaya);font-size:16px}
 
 /* СТРАНИЦА ПРОЕКТА */
-.zagolovok-proekta{padding:56px 40px 30px}
-.zagolovok-proekta h1{font-size:clamp(38px,5.6vw,84px);margin:0;font-style:italic}
-.zagolovok-proekta .stroka{display:flex;gap:34px;flex-wrap:wrap;margin-top:18px;
-  font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--seryy)}
-.galereya{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;padding:20px 40px 40px}
-.galereya figure{margin:0;overflow:hidden;background:#F1EDE8}
-.galereya figure.shire{grid-column:1 / -1}
-.perehod{display:flex;justify-content:space-between;padding:40px;border-top:1px solid var(--tonkaya);
-  font-size:16px}
-.perehod .melko{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--seryy);
-  display:block;margin-bottom:5px}
-
-/* УСЛУГИ */
-.uslugi{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;padding:40px 40px 100px}
-.usluga h3{font-size:30px;margin:0 0 8px;font-style:italic}
-.usluga .chto{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--seryy);
-  margin-bottom:18px}
-.usluga ul{margin:0;padding-left:18px}
-.usluga li{margin-bottom:7px}
+.zag-proekta{padding:70px 60px 26px;display:flex;justify-content:space-between;
+  align-items:flex-end;gap:24px;flex-wrap:wrap}
+.zag-proekta h1{font-size:clamp(28px,3.6vw,50px);font-weight:400;margin:0;letter-spacing:.01em}
+.zag-proekta .sved{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--seryy)}
+.kadry{padding:0 60px 60px;display:grid;grid-template-columns:repeat(12,1fr);gap:60px 30px}
+.kadry figure{margin:0}
+.kadry figure:nth-child(4n+1){grid-column:2 / span 7}
+.kadry figure:nth-child(4n+2){grid-column:10 / span 3;align-self:end}
+.kadry figure:nth-child(4n+3){grid-column:4 / span 6}
+.kadry figure:nth-child(4n+4){grid-column:1 / span 4;margin-top:-60px}
+.kadry img{background:#f3f1ee}
+.sosedi{display:flex;justify-content:space-between;padding:50px 60px 90px;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.sosedi span{color:var(--seryy);display:block;margin-bottom:6px;font-size:10px}
 
 @media (max-width:1000px){
-  .proekty{grid-template-columns:repeat(2,1fr);gap:44px 20px;padding:20px 20px 60px}
-  .plitka:nth-child(4n+2),.plitka:nth-child(4n+3),.plitka:nth-child(4n+4){margin-top:0}
-  .plitka:nth-child(2n) {margin-top:44px}
-  .plitka .imya{position:static;opacity:1;transform:none;margin-top:10px}
-  .dvoyka{grid-template-columns:1fr}
-  .dvoyka .foto{aspect-ratio:3/4}
-  .dvoyka .tekst{padding:40px 20px}
-  .stolbcy{columns:1;padding:16px 20px 40px}
-  .zapiski,.uslugi{grid-template-columns:1fr;gap:34px;padding:16px 20px 60px}
-  .galereya{grid-template-columns:1fr;padding:16px 20px}
-  .shapka{padding:16px 20px;gap:14px}
-  .shapka nav{display:none}
-  .polosa,.zagolovok-proekta,.podval{padding-left:20px;padding-right:20px}
-  .podval{grid-template-columns:1fr}
+  .pervyy{grid-template-columns:1fr;gap:34px;padding:70px 20px 40px;min-height:auto}
+  .pervyy .pravo{padding-top:0}
+  .stolb{flex-direction:row;align-items:center;justify-content:center;gap:18px;padding:10px 0}
+  .imya-vertikal,.pod-imenem{writing-mode:horizontal-tb;transform:none}
+  .imya-vertikal{font-size:34px;letter-spacing:.22em}
+  .spisok-vniz{margin:0;padding-top:0}
+  .kollazh{padding:20px;grid-template-columns:1fr;gap:44px}
+  .rabota:nth-child(n){grid-column:auto;margin-top:0}
+  .kadry{padding:0 20px 40px;grid-template-columns:1fr;gap:34px}
+  .kadry figure:nth-child(n){grid-column:auto;margin-top:0}
+  .zag-proekta,.shapka-str,.sosedi{padding-left:20px;padding-right:20px}
+  .tochka{top:18px;right:20px}
 }
 </style>
 </head><body>
-<header class="shapka">
+<button class="tochka" aria-label="Меню" aria-expanded="false"></button>
+<div class="zanaves"><nav><a href="../index.html">Проекты</a><a href="../masterskaya.html">Мастерская</a><a href="../uslugi.html">Услуги</a><a href="../zapiski.html">Записки</a><a href="../pressa.html">Пресса</a>
+  <div class="svyaz">Москва · +7 916 619-99-85 · телеграм</div></nav></div><div class="shapka-str">
   <a class="znak" href="../index.html">Светлана Ильина</a>
-  <nav><a href="../index.html#proekty" class="tut">Проекты</a><a href="../masterskaya.html">Мастерская</a><a href="../uslugi.html">Услуги</a><a href="../index.html#pressa">Пресса</a><a href="../index.html#zapiski">Записки</a></nav>
-</header>
-<div class="zagolovok-proekta">
-  <h1>Проект квартиры</h1>
-  <div class="stroka">
-    <span>квартира</span><span>Москва</span>
-    <span>9 кадров</span><span>11 / 18</span>
-  </div>
+  <a class="nazad" href="../index.html">← проекты</a>
 </div>
-<div class="galereya"><figure class="shire"><img loading="lazy" src="../foto/proekt-kvartiry-0.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-1.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-2.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-3.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-4.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-5.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-6.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-7.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-8.jpg" alt="Проект квартиры"></figure></div>
-<div class="perehod"><a href="sosny-v-mansarde.html"><span class="melko">предыдущий</span>Сосны в мансарде</a><a href="kottedzh-na-novorizhskom-shosse.html"><span class="melko">следующий</span>Коттедж на Новорижском шоссе</a></div>
-<footer class="podval">
-  <div><div class="iniciativy">СИ</div></div>
-  <div>
-    <div class="melko">Мастерская</div>
-    Москва<br>+7 916 619-99-85<br>
-    <a href="mailto:info@svetlanailina.ru">info@svetlanailina.ru</a>
-  </div>
-  <div>
-    <div class="melko">Написать</div>
-    <a href="#">Телеграм</a> · <a href="#">WhatsApp</a><br>
-    <a href="../uslugi.html">Услуги и порядок работы</a>
-  </div>
-</footer>
+<div class="zag-proekta">
+  <h1>Проект квартиры</h1>
+  <div class="sved">квартира · Москва · 9 кадров · 11/18</div>
+</div>
+<div class="kadry"><figure><img loading="lazy" src="../foto/proekt-kvartiry-0.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-1.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-2.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-3.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-4.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-5.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-6.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-7.jpg" alt="Проект квартиры"></figure><figure><img loading="lazy" src="../foto/proekt-kvartiry-8.jpg" alt="Проект квартиры"></figure></div>
+<div class="sosedi"><a href="sosny-v-mansarde.html"><span>предыдущий</span>Сосны в мансарде</a><a href="kottedzh-na-novorizhskom-shosse.html"><span>следующий</span>Коттедж на Новорижском шоссе</a></div>
 </body></html>
+<script>
+const tochka = document.querySelector('.tochka');
+const zanaves = document.querySelector('.zanaves');
+tochka.addEventListener('click', () => {
+  const otkryto = zanaves.classList.toggle('vidno');
+  tochka.classList.toggle('otkryto', otkryto);
+  tochka.setAttribute('aria-expanded', otkryto);
+});
+document.addEventListener('keydown', ev => {
+  if (ev.key === 'Escape') { zanaves.classList.remove('vidno'); tochka.classList.remove('otkryto'); }
+});
+</script>
