@@ -2,232 +2,238 @@
 <html lang="ru"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Светлана Ильина - интерьеры</title>
-<meta name="description" content="Дизайн интерьеров в Москве. Квартиры, мансарды, загородные дома. Премии INTERIA AWARDS, European Property Awards, PINWIN.">
+<title>Светлана Ильина - дизайн интерьеров</title>
+<meta name="description" content="Дизайн интерьеров в Москве: квартиры, мансарды, загородные дома, общественные пространства. Премии INTERIA AWARDS, European Property Awards, PINWIN.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --noch:#221826;        /* баклажан - основа */
-  --glubina:#180F1B;     /* провал, для полос и подложек */
-  --moloko:#F1E7DA;      /* топлёное молоко - основной текст */
-  --latun:#C6A15B;       /* латунь - акцент, цифры, линии */
-  --roza:#C98B8B;        /* пыльная роза - второй акцент */
-  --tuman:#8C7F8A;       /* приглушённый служебный */
+  --holst:#F7F2EA;       /* тёплый кремовый - база */
+  --bumaga:#FFFDF9;
+  --chernila:#1C1815;
+  --gorchica:#C9A227;    /* горчица */
+  --kobalt:#2F3F9E;      /* кобальт */
+  --terrakota:#B4532F;   /* терракота */
+  --pion:#D4849B;        /* розовый пион - из салона красоты */
+  --biryuza:#2E8F96;     /* бирюза - из детского сада */
+  --seryy:#8A8078;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--noch);color:var(--moloko);
-  font-family:"Golos Text",-apple-system,Segoe UI,sans-serif;font-size:17px;line-height:1.65;
+body{margin:0;background:var(--holst);color:var(--chernila);
+  font-family:"Golos Text",-apple-system,Segoe UI,sans-serif;font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,.imya,.chislo{font-family:"Prata",Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:"Prata",Georgia,serif;font-weight:400;letter-spacing:-.02em}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--latun);outline-offset:4px}
-.ramka{max-width:1240px;margin:0 auto;padding:0 32px}
+img{display:block;width:100%}
+:focus-visible{outline:2px solid var(--kobalt);outline-offset:3px}
+.ramka{max-width:1400px;margin:0 auto;padding:0 28px}
 
-/* ОБЛОЖКА */
-.oblozhka{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;
-  align-items:flex-end}
-.oblozhka .kadr{position:absolute;inset:0}
-.oblozhka .kadr img{width:100%;height:100%;object-fit:cover;
-  animation:naezd 26s ease-out both}
-@keyframes naezd{from{transform:scale(1.14)}to{transform:scale(1)}}
-.oblozhka::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(34,24,38,.55) 0%,rgba(34,24,38,.2) 38%,rgba(34,24,38,.94) 100%)}
-.nadpis{position:relative;z-index:2;width:100%;padding-bottom:56px}
-.nadpis .kto{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--latun);
-  margin-bottom:20px;opacity:0;animation:vsplyt .9s .3s ease-out both}
-.nadpis h1{font-size:clamp(44px,8.5vw,124px);line-height:.94;margin:0;letter-spacing:-.035em;
-  opacity:0;animation:vsplyt 1s .5s ease-out both}
-.nadpis h1 i{font-style:italic;color:var(--roza)}
-.nadpis .delo{margin:24px 0 0;max-width:46ch;color:#D6C9C4;
-  opacity:0;animation:vsplyt 1s .8s ease-out both}
-@keyframes vsplyt{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+/* МЕНЮ */
+.menyu{position:sticky;top:0;z-index:20;background:rgba(247,242,234,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid rgba(28,24,21,.1)}
+.menyu .ramka{display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;padding-bottom:16px;gap:24px}
+.menyu .znak{font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500}
+.menyu nav{display:flex;gap:26px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.menyu nav a{padding:4px 0;border-bottom:1px solid transparent;transition:border-color .3s}
+.menyu nav a:hover{border-color:var(--chernila)}
+.menyu .svyaz{font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--chernila);padding:9px 20px;transition:background .3s,color .3s}
+.menyu .svyaz:hover{background:var(--chernila);color:var(--holst)}
 
-/* бегущая строка премий */
-.begushchaya{border-top:1px solid rgba(198,161,91,.3);border-bottom:1px solid rgba(198,161,91,.3);
-  overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--glubina)}
-.begushchaya div{display:inline-block;animation:bezhit 46s linear infinite}
-.begushchaya span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--latun);
-  padding:0 30px}
-@keyframes bezhit{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.begushchaya:hover div{animation-play-state:paused}
+/* ПЛАКАТ - первый экран */
+.plakat{display:grid;grid-template-columns:1.25fr .75fr;min-height:78vh}
+.plakat .snimok{position:relative;overflow:hidden;background:#E8E0D5}
+.plakat .snimok img{height:100%;object-fit:cover;animation:naezd 22s ease-out both}
+@keyframes naezd{from{transform:scale(1.09)}to{transform:scale(1)}}
+.plakat .imya{position:absolute;top:5%;left:5%;right:5%;color:#fff;
+  font-size:clamp(38px,6.4vw,104px);line-height:.86;letter-spacing:.02em;
+  text-shadow:0 2px 40px rgba(0,0,0,.35);font-family:"Prata",Georgia,serif}
+.plakat .plashka{background:var(--gorchica);padding:44px 38px;display:flex;
+  flex-direction:column;justify-content:space-between;color:#211B08}
+.plakat .plashka .verh{font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.plakat .plashka .niz h2{font-size:clamp(26px,2.6vw,40px);line-height:1.08;margin:0 0 14px}
+.plakat .plashka .niz p{margin:0;font-size:16px;max-width:30ch}
 
-/* ВРЕЗКА - то, что раньше теснилось на первом экране */
-.vrezka{padding:96px 0 12px}
-.vrezka p{font-size:clamp(21px,2.4vw,31px);line-height:1.42;max-width:22ch;margin:0;
-  font-family:"Prata",Georgia,serif;letter-spacing:-.015em}
-
-/* ЛЕНТА РАБОТ */
-.lenta-obertka{padding:92px 0 96px}
-.shapka-razdela{display:flex;justify-content:space-between;align-items:baseline;
+/* РАБОТЫ - сетка, подпись под фотографией */
+.razdel{padding:96px 0 0}
+.zaglavie{display:flex;align-items:baseline;justify-content:space-between;gap:20px;
   margin-bottom:34px}
-.shapka-razdela h2{font-size:clamp(30px,4vw,52px);margin:0}
-.shapka-razdela p{margin:0;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--tuman)}
-.lenta{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:6px 32px 26px;scrollbar-width:thin;scrollbar-color:var(--latun) transparent}
-.lenta::-webkit-scrollbar{height:3px}
-.lenta::-webkit-scrollbar-thumb{background:var(--latun)}
-.rabota{flex:0 0 clamp(280px,34vw,460px);scroll-snap-align:center;position:relative;
-  text-decoration:none;display:block}
-.rabota .snimok{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--glubina)}
-.rabota img{width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .9s cubic-bezier(.25,.46,.45,.94);filter:saturate(1.06)}
-.rabota:hover img{transform:scale(1.06)}
-.rabota .snimok::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 45%,rgba(24,15,27,.85) 100%)}
-.rabota .imya{position:absolute;left:22px;right:22px;bottom:18px;z-index:2;
-  font-size:clamp(24px,2.6vw,34px);line-height:1.05}
-/* Метка лежит поверх фотографии, а фотографии светлые - без подложки она
-   пропадала. */
-.rabota .metka{position:absolute;top:16px;left:16px;z-index:2;font-size:10px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--latun);
-  background:rgba(24,15,27,.72);padding:6px 12px;backdrop-filter:blur(3px)}
-.rabota .imya{text-shadow:0 2px 24px rgba(24,15,27,.9)}
+.zaglavie h2{font-size:clamp(30px,3.8vw,54px);margin:0}
+.zaglavie span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--seryy)}
+.setka{display:grid;grid-template-columns:repeat(2,1fr);gap:52px 34px}
+.setka.troyka{grid-template-columns:repeat(3,1fr);gap:44px 26px}
+.rabota .kadr{overflow:hidden;aspect-ratio:4/3;background:#E8E0D5}
+.rabota img{height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.25,.46,.45,.94)}
+.rabota:hover img{transform:scale(1.04)}
+.rabota .podpis{display:flex;align-items:baseline;justify-content:space-between;
+  gap:14px;margin-top:14px;border-top:1px solid rgba(28,24,21,.16);padding-top:12px}
+.rabota h3{font-size:clamp(21px,2vw,30px);margin:0;line-height:1.1}
+.rabota .metka{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--seryy);
+  white-space:nowrap}
 
-/* ЦИФРЫ */
-.schet{background:var(--glubina);padding:74px 0;margin-top:10px}
-.schet .ramka{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;text-align:center}
-.chislo{font-size:clamp(40px,6vw,76px);line-height:1;color:var(--latun)}
-.schet p{margin:10px 0 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--tuman)}
+/* ЦИТАТА на цветной плашке */
+.citata{margin-top:104px;background:var(--kobalt);color:#F4F2FF;padding:88px 0}
+.citata .ramka{max-width:980px;text-align:center}
+.citata p{font-family:"Prata",Georgia,serif;font-size:clamp(24px,3.2vw,44px);
+  line-height:1.24;margin:0 0 22px;letter-spacing:-.01em}
+.citata .kto{font-size:12px;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
 
-/* ПРИЗНАНИЕ */
-.priznanie{padding:96px 0}
-.spisok-nagrad{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:0 48px;margin-top:26px}
-.spisok-nagrad div{padding:15px 0;border-bottom:1px solid rgba(241,231,218,.11);font-size:15px;
-  display:flex;gap:14px;align-items:baseline}
-.spisok-nagrad i{color:var(--latun);font-style:normal;font-size:11px;letter-spacing:.1em}
+/* О СТУДИИ */
+.o-studii{padding:104px 0}
+.o-studii .ramka{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.portret{aspect-ratio:3/4;background:var(--pion);position:relative;overflow:hidden}
+.portret span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:24px}
+.o-studii h2{font-size:clamp(30px,3.6vw,52px);margin:0 0 22px;line-height:1.06}
+.o-studii p{max-width:56ch;margin:0 0 16px}
+
+/* ПРЕССА */
+.pressa{background:var(--bumaga);padding:92px 0}
+.spisok{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 44px}
+.spisok div{padding:15px 0;border-bottom:1px solid rgba(28,24,21,.12);font-size:15px;
+  display:flex;gap:14px}
+.spisok i{color:var(--terrakota);font-style:normal;font-size:11px;letter-spacing:.1em;padding-top:4px}
 
 /* ДНЕВНИК */
-.dnevnik{padding:0 0 96px}
-.stati{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;margin-top:30px}
-.stati article{border-top:1px solid var(--latun);padding-top:18px}
-.stati h3{font-size:26px;margin:0 0 10px;line-height:1.15}
-.stati p{margin:0;font-size:15px;color:#BFB2B9}
+.dnevnik{padding:96px 0}
+.stati{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.stati article h3{font-size:24px;margin:0 0 10px;line-height:1.16}
+.stati article p{margin:0;font-size:15px;color:#5C554E}
+.stati article .polosa{height:5px;background:var(--terrakota);margin-bottom:16px;width:56px}
 
 /* ПРИЗЫВ */
-.prizyv{position:relative;padding:120px 0;text-align:center;background:var(--glubina);
-  border-top:1px solid rgba(198,161,91,.3)}
-.prizyv h2{font-size:clamp(36px,6.5vw,86px);line-height:1;margin:0 0 22px}
-.prizyv p{max-width:44ch;margin:0 auto 34px;color:#C9BCC4}
-.knopka{display:inline-block;padding:17px 46px;border:1px solid var(--latun);color:var(--latun);
-  font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:background .35s,color .35s}
-.knopka:hover{background:var(--latun);color:var(--noch)}
-.podval{padding:26px 0;font-size:12px;color:var(--tuman);text-align:center}
+.prizyv{background:var(--chernila);color:var(--holst);padding:104px 0}
+.prizyv .ramka{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.prizyv h2{font-size:clamp(34px,5vw,72px);line-height:1;margin:0}
+.prizyv p{max-width:42ch;color:#D8D0C6}
+.knopka{display:inline-block;margin-top:26px;padding:16px 40px;background:var(--gorchica);
+  color:#211B08;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  transition:background .3s}
+.knopka:hover{background:var(--pion);color:#fff}
+.podval{padding:26px 0;font-size:12px;color:var(--seryy);text-align:center}
 
-/* Появление при прокрутке. Пряталось безусловно - и разделы «Признание»,
-   «Дневник» и цифры оставались пустыми чёрными простынями, если скрипт не
-   отработал. Теперь содержимое видно всегда, а прячет его только сам скрипт,
-   поставив на <html> класс js. */
-.js .tayet{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.tayet{opacity:1}
+.js .tayet{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .js .tayet.vidno{opacity:1;transform:none}
 
-@media (max-width:860px){
-  .schet .ramka{grid-template-columns:repeat(2,1fr);gap:30px}
-  .lenta{padding-left:20px;padding-right:20px}
-  .ramka{padding:0 20px}
-  /* На телефоне подпись раздела вставала в одну строку с заголовком и налезала
-     на него - ставим её под заголовок. */
-  .shapka-razdela{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:24px}
-  .shapka-razdela p{font-size:11px}
-  .nadpis{padding-bottom:38px}
-  .vrezka{padding:64px 0 4px}
-  .vrezka p{max-width:none}
-  .lenta-obertka{padding:56px 0 64px}
-  .razdel,.priznanie{padding:64px 0}
-  .prizyv{padding:80px 0}
+@media (max-width:900px){
+  .plakat{grid-template-columns:1fr}
+  .plakat .snimok{aspect-ratio:3/4}
+  .setka,.setka.troyka,.stati{grid-template-columns:1fr;gap:36px}
+  .o-studii .ramka,.prizyv .ramka{grid-template-columns:1fr;gap:30px}
+  .menyu nav{display:none}
+  .zaglavie{flex-direction:column;align-items:flex-start;gap:6px}
+  .razdel,.o-studii,.dnevnik,.pressa{padding:64px 0}
+  .citata{margin-top:64px;padding:64px 0}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto}
-  .tayet{opacity:1;transform:none}
+  .js .tayet{opacity:1;transform:none}
 }
 </style>
 </head><body>
 
-<header class="oblozhka">
-  <div class="kadr"><img src="foto/kino-0.jpg" alt=""></div>
-  <div class="ramka nadpis">
-    <div class="kto">Светлана Ильина · дизайн интерьеров · Москва</div>
-    <h1>У каждой работы есть <i>имя</i></h1>
+<header class="menyu">
+  <div class="ramka">
+    <a class="znak" href="#">Светлана Ильина</a>
+    <nav>
+      <a href="#raboty">Работы</a>
+      <a href="#studiya">О студии</a>
+      <a href="#pressa">Пресса</a>
+      <a href="#dnevnik">Дневник</a>
+    </nav>
+    <a class="svyaz" href="#svyaz">Написать</a>
   </div>
 </header>
 
-<div class="begushchaya"><div><span>1 место в конкурсе</span><span>INTERIA AWARDS 2016. ГЛАВНАЯ ПРЕМИЯ ГОДА</span><span>Студия для студентки</span><span>Публикация в журнале DOM&amp;Podium</span><span>Три работы Студии вышли в финал на конкурсе PINWIN 8 сезон</span><span>Публикация журнал «Salon Intrior»</span><span>European Property Awards</span><span>Финалист конкурса «SMART &amp; MINI. Квартира до 30 кв.м»</span><span>Пресса-Новости партнеров Искусство по-итальянски</span><span>1 место в конкурсе</span><span>INTERIA AWARDS 2016. ГЛАВНАЯ ПРЕМИЯ ГОДА</span><span>Студия для студентки</span><span>Публикация в журнале DOM&amp;Podium</span><span>Три работы Студии вышли в финал на конкурсе PINWIN 8 сезон</span><span>Публикация журнал «Salon Intrior»</span><span>European Property Awards</span><span>Финалист конкурса «SMART &amp; MINI. Квартира до 30 кв.м»</span><span>Пресса-Новости партнеров Искусство по-итальянски</span></div></div>
-
-<section class="vrezka">
-  <div class="ramka tayet">
-    <p>«Космос в мансарде», «Кино на пляже», «Альтамира». Так эти дома называют
-    хозяева - и так их помнят через десять лет после новоселья.</p>
+<section class="plakat">
+  <div class="snimok">
+    <img src="foto/kino-0.jpg" alt="Интерьер работы «Кино на пляже»">
+    <div class="imya">СВЕТЛАНА<br>ИЛЬИНА</div>
+  </div>
+  <div class="plashka">
+    <div class="verh">Дизайн интерьеров · Москва · с 2006 года</div>
+    <div class="niz">
+      <h2>У каждой работы есть имя</h2>
+      <p>«Космос в мансарде», «Кино на пляже», «Альтамира». Так эти дома называют
+      хозяева - и так их помнят через десять лет после новоселья.</p>
+    </div>
   </div>
 </section>
 
-<section class="lenta-obertka">
-  <div class="ramka shapka-razdela tayet"><h2>Дома и квартиры</h2><p>листайте вбок</p></div>
-  <div class="lenta"><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/kino-0.jpg" alt="Кино на пляже"><span class="metka">квартира · 24 кадров</span><span class="imya">Кино на пляже</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/peshera-4.jpg" alt="Альтамира"><span class="metka">квартира · 20 кадров</span><span class="imya">Альтамира</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/dacha-2.jpg" alt="Дача в сосновом бору"><span class="metka">дом · 17 кадров</span><span class="imya">Дача в сосновом бору</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/guild-1.jpg" alt="Интерьер Designers Guild"><span class="metka">квартира · 18 кадров</span><span class="imya">Интерьер Designers Guild</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/skaminom-4.jpg" alt="Квартира с камином"><span class="metka">квартира · 13 кадров</span><span class="imya">Квартира с камином</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/elegiya-3.jpg" alt="Элегия"><span class="metka">квартира · 23 кадров</span><span class="imya">Элегия</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/kosmos-4.jpg" alt="Космос в мансарде"><span class="metka">мансарда · 12 кадров</span><span class="imya">Космос в мансарде</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/meloman-0.jpg" alt="Мансарда для меломана"><span class="metka">мансарда · 17 кадров</span><span class="imya">Мансарда для меломана</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/gorohi-4.jpg" alt="Банты и горохи"><span class="metka">квартира · 15 кадров</span><span class="imya">Банты и горохи</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/sosny-v-mansarde-1.jpg" alt="Сосны в мансарде"><span class="metka">мансарда · 8 кадров</span><span class="imya">Сосны в мансарде</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/proekt-kvartiry-4.jpg" alt="Проект квартиры"><span class="metka">квартира · 9 кадров</span><span class="imya">Проект квартиры</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/kottedzh-na-novorizhskom-shosse-1.jpg" alt="Коттедж на Новорижском шоссе"><span class="metka">дом · 15 кадров</span><span class="imya">Коттедж на Новорижском шоссе</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/sirenevoe-nastroenie-4.jpg" alt="Сиреневое настроение"><span class="metka">квартира · 16 кадров</span><span class="imya">Сиреневое настроение</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/krasnaya-smorodina-4.jpg" alt="Красная смородина"><span class="metka">квартира · 19 кадров</span><span class="imya">Красная смородина</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/yarkaya-kvartira-4.jpg" alt="Яркая квартира"><span class="metka">квартира · 9 кадров</span><span class="imya">Яркая квартира</span></div></a></div>
-</section>
-
-<section class="lenta-obertka" style="padding-top:0">
-  <div class="ramka shapka-razdela tayet"><h2>Для детей и дела</h2><p>салон, игровая, детский сад</p></div>
-  <div class="lenta"><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/salon-0.jpg" alt="Салон красоты"><span class="metka">салон · 17 кадров</span><span class="imya">Салон красоты</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/igrovaya-3.jpg" alt="Игровая комната"><span class="metka">детям · 13 кадров</span><span class="imya">Игровая комната</span></div></a><a class="rabota" href="#"><div class="snimok"><img loading="lazy" src="foto/alekseevskaya-2.jpg" alt="Детский сад на Алексеевской"><span class="metka">детям · 10 кадров</span><span class="imya">Детский сад на Алексеевской</span></div></a></div>
-</section>
-
-<section class="schet">
+<section class="razdel" id="raboty">
   <div class="ramka">
-    <div class="tayet"><div class="chislo">20</div><p>лет в профессии</p></div>
-    <div class="tayet"><div class="chislo">18</div><p>работы в портфолио</p></div>
-    <div class="tayet"><div class="chislo">17</div><p>премий и публикаций</p></div>
-    <div class="tayet"><div class="chislo">275</div><p>кадров в архиве</p></div>
+    <div class="zaglavie"><h2>Дома и квартиры</h2><span>15 работ</span></div>
+    <div class="setka"><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/kino-0.jpg" alt="Кино на пляже"></div><div class="podpis"><h3>Кино на пляже</h3><span class="metka">квартира · 24 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/peshera-4.jpg" alt="Альтамира"></div><div class="podpis"><h3>Альтамира</h3><span class="metka">квартира · 20 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/dacha-2.jpg" alt="Дача в сосновом бору"></div><div class="podpis"><h3>Дача в сосновом бору</h3><span class="metka">загородный дом · 17 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/guild-1.jpg" alt="Интерьер Designers Guild"></div><div class="podpis"><h3>Интерьер Designers Guild</h3><span class="metka">квартира · 18 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/skaminom-4.jpg" alt="Квартира с камином"></div><div class="podpis"><h3>Квартира с камином</h3><span class="metka">квартира · 13 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/elegiya-3.jpg" alt="Элегия"></div><div class="podpis"><h3>Элегия</h3><span class="metka">квартира · 23 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/kosmos-4.jpg" alt="Космос в мансарде"></div><div class="podpis"><h3>Космос в мансарде</h3><span class="metka">мансарда · 12 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/meloman-0.jpg" alt="Мансарда для меломана"></div><div class="podpis"><h3>Мансарда для меломана</h3><span class="metka">мансарда · 17 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/gorohi-4.jpg" alt="Банты и горохи"></div><div class="podpis"><h3>Банты и горохи</h3><span class="metka">квартира · 15 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/sosny-v-mansarde-1.jpg" alt="Сосны в мансарде"></div><div class="podpis"><h3>Сосны в мансарде</h3><span class="metka">мансарда · 8 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/proekt-kvartiry-4.jpg" alt="Проект квартиры"></div><div class="podpis"><h3>Проект квартиры</h3><span class="metka">квартира · 9 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/kottedzh-na-novorizhskom-shosse-1.jpg" alt="Коттедж на Новорижском шоссе"></div><div class="podpis"><h3>Коттедж на Новорижском шоссе</h3><span class="metka">загородный дом · 15 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/sirenevoe-nastroenie-4.jpg" alt="Сиреневое настроение"></div><div class="podpis"><h3>Сиреневое настроение</h3><span class="metka">квартира · 16 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/krasnaya-smorodina-4.jpg" alt="Красная смородина"></div><div class="podpis"><h3>Красная смородина</h3><span class="metka">квартира · 19 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/yarkaya-kvartira-4.jpg" alt="Яркая квартира"></div><div class="podpis"><h3>Яркая квартира</h3><span class="metka">квартира · 9 кадров</span></div></a></div>
   </div>
 </section>
 
-<section class="priznanie">
+<section class="razdel">
   <div class="ramka">
-    <div class="shapka-razdela tayet"><h2>Признание</h2><p>премии и пресса</p></div>
-    <div class="spisok-nagrad tayet"><div><i>01</i>1 место в конкурсе</div><div><i>02</i>INTERIA AWARDS 2016. ГЛАВНАЯ ПРЕМИЯ ГОДА</div><div><i>03</i>Студия для студентки</div><div><i>04</i>Публикация в журнале DOM&amp;Podium</div><div><i>05</i>Три работы Студии вышли в финал на конкурсе PINWIN 8 сезон</div><div><i>06</i>Публикация журнал «Salon Intrior»</div><div><i>07</i>European Property Awards</div><div><i>08</i>Финалист конкурса «SMART &amp; MINI. Квартира до 30 кв.м»</div><div><i>09</i>Пресса-Новости партнеров Искусство по-итальянски</div><div><i>10</i>Публикация в журнале «Красивые дома»</div><div><i>11</i>Проект в Salon</div><div><i>12</i>Статья на портале houzze</div></div>
+    <div class="zaglavie"><h2>Салон, игровая, детский сад</h2><span>общественные интерьеры</span></div>
+    <div class="setka troyka"><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/salon-0.jpg" alt="Салон красоты"></div><div class="podpis"><h3>Салон красоты</h3><span class="metka">салон · 17 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/igrovaya-3.jpg" alt="Игровая комната"></div><div class="podpis"><h3>Игровая комната</h3><span class="metka">для детей · 13 кадров</span></div></a><a class="rabota tayet" href="#"><div class="kadr"><img loading="lazy" src="foto/alekseevskaya-2.jpg" alt="Детский сад на Алексеевской"></div><div class="podpis"><h3>Детский сад на Алексеевской</h3><span class="metka">для детей · 10 кадров</span></div></a></div>
   </div>
 </section>
 
-<section class="dnevnik">
+<section class="citata">
   <div class="ramka">
-    <div class="shapka-razdela tayet"><h2>Дневник</h2><p>выставки и тенденции</p></div>
-    <div class="stati tayet"><article><h3>Самый удачливый дизайнер Москвы: Светлана Ильина о победе в конкурсе Designers Guild и «Ампир Декор»</h3><p>В 2016 году Светлана Ильина выиграла сразу 4 профессиональных конкурса для дизайнеров. О секретах везения, русском стиле и встрече с основательницей империи Designers Gui…</p></article><article><h3>Модные фактуры и цвета — 2017: обзор трендов выставок</h3><p>Всегда любопытно знать, как сегодняшние тренды пересекаются с трендами прошлых лет. И ужасно хочется приподнять завесу будущего и хоть глазком посмотреть на то, что нас ж…</p></article><article><h3>Поездка c компанией HOGART на фабрики BETTE, HANSGROHE, ZEHNDER</h3><p>Замечательная познавательная поездка на топовые фабрики сантехнического оборудования была организована компанией Хогарт -Арт в декабре 2016. Светлана Ильина была приглаше…</p></article></div>
+    <p>Самый удачливый дизайнер Москвы: четыре профессиональных конкурса за один год</p>
+    <div class="kto">Ампир Декор, о победе в Designers Guild</div>
   </div>
 </section>
 
-<section class="prizyv">
+<section class="o-studii" id="studiya">
+  <div class="ramka">
+    <div class="portret tayet"><span>здесь будет портрет Светланы</span></div>
+    <div class="tayet">
+      <h2>Двадцать лет и сто объектов</h2>
+      <p>Светлана проектирует квартиры, мансарды и загородные дома в Москве и
+      области. Работает от первой встречи до расстановки последней вазы:
+      планировка, чертежи, подбор материалов, комплектация, авторский надзор.</p>
+      <p>В 2016 году её работы взяли четыре профессиональные премии за год,
+      включая главную - INTERIA AWARDS. Проекты публиковали Salon Interior,
+      «Красивые квартиры», «Красивые дома», DOM&amp;Podium.</p>
+      <p>Кроме жилых интерьеров есть общественные: салон красоты, игровая
+      комната, детский сад на Алексеевской.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pressa" id="pressa">
+  <div class="ramka">
+    <div class="zaglavie"><h2>Премии и публикации</h2><span>17 записей</span></div>
+    <div class="spisok tayet"><div><i>01</i><span>1 место в конкурсе</span></div><div><i>02</i><span>INTERIA AWARDS 2016. ГЛАВНАЯ ПРЕМИЯ ГОДА</span></div><div><i>03</i><span>Студия для студентки</span></div><div><i>04</i><span>Публикация в журнале DOM&amp;Podium</span></div><div><i>05</i><span>Три работы Студии вышли в финал на конкурсе PINWIN 8 сезон</span></div><div><i>06</i><span>Публикация журнал «Salon Intrior»</span></div><div><i>07</i><span>European Property Awards</span></div><div><i>08</i><span>Финалист конкурса «SMART &amp; MINI. Квартира до 30 кв.м»</span></div><div><i>09</i><span>Пресса-Новости партнеров Искусство по-итальянски</span></div><div><i>10</i><span>Публикация в журнале «Красивые дома»</span></div><div><i>11</i><span>Проект в Salon</span></div><div><i>12</i><span>Статья на портале houzze</span></div></div>
+  </div>
+</section>
+
+<section class="dnevnik" id="dnevnik">
+  <div class="ramka">
+    <div class="zaglavie"><h2>Дневник</h2><span>выставки, тенденции, разборы</span></div>
+    <div class="stati"><article class="tayet"><div class="polosa"></div><h3>Самый удачливый дизайнер Москвы: Светлана Ильина о победе в конкурсе Designers Guild и «Ампир Декор»</h3><p>В 2016 году Светлана Ильина выиграла сразу 4 профессиональных конкурса для дизайнеров. О секретах везения, русском стиле и встрече с основательницей и…</p></article><article class="tayet"><div class="polosa"></div><h3>Модные фактуры и цвета — 2017: обзор трендов выставок</h3><p>Всегда любопытно знать, как сегодняшние тренды пересекаются с трендами прошлых лет. И ужасно хочется приподнять завесу будущего и хоть глазком посмотр…</p></article><article class="tayet"><div class="polosa"></div><h3>Поездка c компанией HOGART на фабрики BETTE, HANSGROHE, ZEHNDER</h3><p>Замечательная познавательная поездка на топовые фабрики сантехнического оборудования была организована компанией Хогарт -Арт в декабре 2016. Светлана …</p></article></div>
+  </div>
+</section>
+
+<section class="prizyv" id="svyaz">
   <div class="ramka">
     <h2>Расскажите<br>про квартиру</h2>
-    <p>Начинаем с разговора: сколько комнат, кто в них живёт, что раздражает
-    в нынешнем жилье. После первой встречи станет ясно, нужен ли полный проект
-    или хватит расстановки и подбора.</p>
-    <a class="knopka" href="#">Написать Светлане</a>
+    <div>
+      <p>Начинаем с разговора: сколько комнат, кто в них живёт, что раздражает
+      в нынешнем жилье. После первой встречи станет ясно, нужен ли полный проект
+      или хватит расстановки и подбора.</p>
+      <a class="knopka" href="#">Написать Светлане</a>
+    </div>
   </div>
 </section>
 
-<div class="podval">Прототип, версия 3. Фотографии из архива сайтов - ждём исходники.</div>
-
+<div class="podval">Прототип, версия 4. Фотографии из архива старых сайтов - ждём исходники.</div>
 <script>
-// Прятать разделы имеет право только сам скрипт: без него страница обязана
-// читаться целиком.
 document.documentElement.classList.add('js');
-
-// Появление разделов при прокрутке.
-const nabl = new IntersectionObserver(zapisi => {
-  zapisi.forEach(z => { if (z.isIntersecting) { z.target.classList.add('vidno'); nabl.unobserve(z.target); } });
-}, {threshold: .12});
+const nabl = new IntersectionObserver(z => {
+  z.forEach(x => { if (x.isIntersecting) { x.target.classList.add('vidno'); nabl.unobserve(x.target); } });
+}, {threshold:.1});
 document.querySelectorAll('.tayet').forEach(el => nabl.observe(el));
-
-// Лента работ листается колесом мыши: горизонтальная прокрутка мышью
-// недоступна, а тянуть полосу внизу неудобно.
-const lenta = document.querySelector('.lenta');
-if (lenta) {
-  lenta.addEventListener('wheel', ev => {
-    if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return;
-    ev.preventDefault();
-    lenta.scrollLeft += ev.deltaY;
-  }, {passive: false});
-}
 </script>
 </body></html>
