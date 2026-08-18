@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Яркая квартира - Светлана Ильина</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{ --bumaga:#FFFFFF; --chernila:#111010; --seryy:#8C8681; --tonkaya:#E6E2DD; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bumaga);color:var(--chernila);
+  font-family:"EB Garamond",Georgia,serif;font-size:18px;line-height:1.5;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3,.znak,.iniciativy{font-family:"Cormorant Garamond","EB Garamond",Georgia,serif;
+  font-weight:400;letter-spacing:.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%}
+:focus-visible{outline:1px solid var(--chernila);outline-offset:4px}
+.polya{padding:0 40px}
+
+/* ШАПКА */
+.shapka{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;
+  padding:22px 40px;gap:30px}
+.znak{font-size:23px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.shapka nav{display:flex;gap:26px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.shapka nav a{padding-bottom:2px;border-bottom:1px solid transparent}
+.shapka nav a:hover,.shapka nav a.tut{border-color:var(--chernila)}
+
+/* СЕТКА ПРОЕКТОВ - разная высота, сдвиг по вертикали, без подписей */
+.proekty{display:grid;grid-template-columns:repeat(4,1fr);gap:56px 34px;
+  padding:28px 40px 90px}
+.plitka{position:relative;display:block}
+.plitka:nth-child(4n+2){margin-top:86px}
+.plitka:nth-child(4n+3){margin-top:14px}
+.plitka:nth-child(4n+4){margin-top:110px}
+.plitka .kadr{overflow:hidden;background:#F1EDE8}
+.plitka:nth-child(3n+1) .kadr{aspect-ratio:3/4}
+.plitka:nth-child(3n+2) .kadr{aspect-ratio:2/3}
+.plitka:nth-child(3n+3) .kadr{aspect-ratio:1/1}
+.plitka img{height:100%;object-fit:cover;transition:opacity .5s ease}
+.plitka:hover img{opacity:.82}
+.plitka .imya{position:absolute;left:0;right:0;bottom:-26px;font-size:15px;
+  letter-spacing:.02em;opacity:0;transform:translateY(-6px);
+  transition:opacity .35s,transform .35s}
+.plitka:hover .imya,.plitka:focus-visible .imya{opacity:1;transform:none}
+
+/* РАЗДЕЛ-ЗАГОЛОВОК */
+.polosa{display:flex;align-items:baseline;justify-content:space-between;
+  padding:70px 40px 10px;gap:20px}
+.polosa h2{font-size:clamp(26px,3vw,44px);margin:0;font-style:italic}
+.polosa span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--seryy)}
+
+/* ПРЕССА и ЗАПИСКИ */
+.stolbcy{columns:2;column-gap:70px;padding:16px 40px 60px;font-size:17px}
+.stolbcy div{break-inside:avoid;padding:11px 0;border-bottom:1px solid var(--tonkaya)}
+.zapiski{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;padding:16px 40px 90px}
+.zapiski h3{font-size:25px;margin:0 0 10px;line-height:1.18}
+.zapiski p{margin:0;font-size:16px;color:#57524D}
+
+/* ПОДВАЛ */
+.podval{border-top:1px solid var(--tonkaya);padding:54px 40px 40px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;font-size:16px}
+.podval .iniciativy{font-size:76px;line-height:.8}
+.podval a:hover{border-bottom:1px solid var(--chernila)}
+.podval .melko{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--seryy);
+  margin-bottom:10px}
+
+/* СТРАНИЦА МАСТЕРСКОЙ */
+.dvoyka{display:grid;grid-template-columns:1fr 1.15fr;min-height:calc(100vh - 84px)}
+.dvoyka .foto{background:#F1EDE8;overflow:hidden;position:relative}
+.dvoyka .foto img{height:100%;object-fit:cover}
+.dvoyka .zaglushka{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;text-align:center;color:var(--seryy);font-size:13px;
+  letter-spacing:.16em;text-transform:uppercase;padding:30px}
+.dvoyka .tekst{padding:70px 60px}
+.dvoyka .iniciativy{font-size:clamp(70px,9vw,140px);line-height:.8;margin:0 0 60px}
+.dvoyka p{max-width:58ch;margin:0 0 18px}
+.dvoyka .snizu{margin-top:70px;font-size:16px;color:var(--seryy)}
+
+/* СТРАНИЦА ПРОЕКТА */
+.zagolovok-proekta{padding:56px 40px 30px}
+.zagolovok-proekta h1{font-size:clamp(38px,5.6vw,84px);margin:0;font-style:italic}
+.zagolovok-proekta .stroka{display:flex;gap:34px;flex-wrap:wrap;margin-top:18px;
+  font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--seryy)}
+.galereya{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;padding:20px 40px 40px}
+.galereya figure{margin:0;overflow:hidden;background:#F1EDE8}
+.galereya figure.shire{grid-column:1 / -1}
+.perehod{display:flex;justify-content:space-between;padding:40px;border-top:1px solid var(--tonkaya);
+  font-size:16px}
+.perehod .melko{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--seryy);
+  display:block;margin-bottom:5px}
+
+/* УСЛУГИ */
+.uslugi{display:grid;grid-template-columns:repeat(3,1fr);gap:60px;padding:40px 40px 100px}
+.usluga h3{font-size:30px;margin:0 0 8px;font-style:italic}
+.usluga .chto{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--seryy);
+  margin-bottom:18px}
+.usluga ul{margin:0;padding-left:18px}
+.usluga li{margin-bottom:7px}
+
+@media (max-width:1000px){
+  .proekty{grid-template-columns:repeat(2,1fr);gap:44px 20px;padding:20px 20px 60px}
+  .plitka:nth-child(4n+2),.plitka:nth-child(4n+3),.plitka:nth-child(4n+4){margin-top:0}
+  .plitka:nth-child(2n) {margin-top:44px}
+  .plitka .imya{position:static;opacity:1;transform:none;margin-top:10px}
+  .dvoyka{grid-template-columns:1fr}
+  .dvoyka .foto{aspect-ratio:3/4}
+  .dvoyka .tekst{padding:40px 20px}
+  .stolbcy{columns:1;padding:16px 20px 40px}
+  .zapiski,.uslugi{grid-template-columns:1fr;gap:34px;padding:16px 20px 60px}
+  .galereya{grid-template-columns:1fr;padding:16px 20px}
+  .shapka{padding:16px 20px;gap:14px}
+  .shapka nav{display:none}
+  .polosa,.zagolovok-proekta,.podval{padding-left:20px;padding-right:20px}
+  .podval{grid-template-columns:1fr}
+}
+</style>
+</head><body>
+<header class="shapka">
+  <a class="znak" href="../index.html">Светлана Ильина</a>
+  <nav><a href="../index.html#proekty" class="tut">Проекты</a><a href="../masterskaya.html">Мастерская</a><a href="../uslugi.html">Услуги</a><a href="../index.html#pressa">Пресса</a><a href="../index.html#zapiski">Записки</a></nav>
+</header>
+<div class="zagolovok-proekta">
+  <h1>Яркая квартира</h1>
+  <div class="stroka">
+    <span>квартира</span><span>Москва</span>
+    <span>9 кадров</span><span>15 / 18</span>
+  </div>
+</div>
+<div class="galereya"><figure class="shire"><img loading="lazy" src="../foto/yarkaya-kvartira-0.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-1.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-2.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-3.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-4.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-5.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-6.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-7.jpg" alt="Яркая квартира"></figure><figure><img loading="lazy" src="../foto/yarkaya-kvartira-8.jpg" alt="Яркая квартира"></figure></div>
+<div class="perehod"><a href="krasnaya-smorodina.html"><span class="melko">предыдущий</span>Красная смородина</a><a href="salon.html"><span class="melko">следующий</span>Салон красоты</a></div>
+<footer class="podval">
+  <div><div class="iniciativy">СИ</div></div>
+  <div>
+    <div class="melko">Мастерская</div>
+    Москва<br>+7 916 619-99-85<br>
+    <a href="mailto:info@svetlanailina.ru">info@svetlanailina.ru</a>
+  </div>
+  <div>
+    <div class="melko">Написать</div>
+    <a href="#">Телеграм</a> · <a href="#">WhatsApp</a><br>
+    <a href="../uslugi.html">Услуги и порядок работы</a>
+  </div>
+</footer>
+</body></html>
